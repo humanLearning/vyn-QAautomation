@@ -2,7 +2,7 @@ class QADashboardPage {
   
     get channelHeader() 
     { 
-      return $('h3*=Etihad - Test Channel'); 
+      return $(".nav-bar > .nav-item > .nav-link"); 
     }
     get qaDashboardLink() 
     { 
@@ -12,7 +12,7 @@ class QADashboardPage {
     
 
     get authorLinks() {
-         return $$('//a[contains(@href="dashboards")]')
+         return $('//a[contains(@href="dashboards")]')
          } 
          
     get recordingDropdown() 
@@ -48,11 +48,16 @@ class QADashboardPage {
 
     } 
     get searchButton() 
-    { return $('//button[contains(@class, "search-button")]'); } 
+    { 
+      return $('//button[contains(@class, "search-button")]'); 
+      } 
     get searchMenu() 
-    { return $('//div[contains(@class, "search-menu")]'); } 
+    { 
+      return $('//div[contains(@class, "search-menu")]'); 
+      } 
 
     async navigateToQADashboard() {
+      await this.channelHeader.click();
       await this.channelHeader.scrollIntoView();
       await this.qaDashboardLink.click();
   }
