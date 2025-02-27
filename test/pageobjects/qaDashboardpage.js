@@ -2,32 +2,31 @@ class QADashboardPage {
   
     get channelHeader() 
     { 
-      return $(".nav-bar > .nav-item > .nav-link"); 
+      return $("//a[normalize-space()='Dashboards']"); 
     }
     get qaDashboardLink() 
     { 
-      return $('//*[text()="QA Dashboard All features"]'); 
+      return $("//div[@class='vn-title'][normalize-space()='QA Dashboard All features']"); 
 
     }
-    
-
     get authorLinks() {
-         return $('//a[contains(@href="dashboards")]')
-         } 
+         return $("//body/div[@id='react-app']/div[contains(@class,'main-wrapper')]/div[contains(@class,'mt-3 container-fluid')]/div[contains(@class,'px-0 px-sm-3 px-xl-5')]/div[contains(@class,'row')]/div[contains(@class,'col-xl-12')]/div[contains(@class,'row')]/div[contains(@class,'col')]/div[contains(@class,'dashboard-lanes')]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]")
+    } 
          
     get recordingDropdown() 
     { 
-      return $('//button[contains(text(), "Recording")]')
-
-    } // Replace with accurate selector
-    get recordingTab() 
-    { 
-      return $('@class="vn-icon vn-play"') 
+      return $("//div[contains(@class,'dashboard-lanes')]//div[1]//div[1]//div[1]//div[7]//div[2]//div[1]//a[1]//*[name()='svg']//*[name()='path' and contains(@d,'M18.78 15.')]")
 
     } 
-    // Replace with accurate selector
+    get recordingTab() 
+    { 
+      return $("//div[@class='slick-slide slick-active slick-current']//div//span[@class='vn-icon vn-play']") 
+
+    } 
     get viewRelatedDashboardsLink() 
-    { return $('//a[contains(text(), "View Related Dashboards")]'); } // Replace with accurate selector
+    { return $("//div[contains(@class,'meta-actions')]//a[1]"); 
+
+    }
     get downloadPDFLink() 
     { 
       return $('//a[contains(text(), "Download PDF")]') 
@@ -62,12 +61,13 @@ class QADashboardPage {
       await this.qaDashboardLink.click();
   }
     
-    async clickAuthorLink(index) {
-      await this.authorLinks[index].click();
+    async clickAuthorLink() {
+      await this.authorLinks.click();
     }
     async openRecordingTab() {
-      await this.recordingDropdown.click();
-      return this.recordingTab.waitForDisplayed(); // Verify tab is open
+      await this.recordingTab.click();
+      // await this.recordingDropdown.click();
+      // return this.recordingTab.waitForDisplayed(); // Verify tab is open
     }
     async clickViewRelatedDashboards() {
       await this.viewRelatedDashboardsLink.click();
