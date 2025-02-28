@@ -5,7 +5,7 @@ describe('Vyn Sign Up Page', () => {
         
         const emailInput3= await $('//a[text()="Sign up"]'); // Or the appropriate selector
         await emailInput3.click();
-        await emailInput.waitForDisplayed({ timeout: 5000 });
+        await emailInput.waitForDisplayed({ timeout: 5000 });h
         /*await emailInput.setValue('vaibhav+qa2@humanlearning.com'); // Replace with a valid, unique email
         const passwordInput = await $('input[name="password"]'); // Or the appropriate selector
         await passwordInput.waitForDisplayed({ timeout: 5000 });
