@@ -44,17 +44,80 @@ it('should click author links', async () => {
   // await browser.back();
   // await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');  
 });
+
+/*it('should interact with related dashboards, PDF, and checkbox', async () => {
+  await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');
+  // await QADashboardPage.clickthreedots();
+  await QADashboardPage.openDropdown();
+  const optionsText = await QADashboardPage.getOptionTexts();
+  console.log('Dropdown Options:', optionsText);
+  await QADashboardPage.clickAllOptions();
+
+  await browser.pause(10000);
+});*/
+
+// it('should interact with related dashboards, PDF, and checkbox', async () => {
+  // await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');
+  // await QADashboardPage.getoptiontexts();
+  // await browser.pause(10000);
+// });
+it('should interact on three dots', async () => {
+  console.log("element is display");
+  await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');
+  await QADashboardPage.openDropdown();
+  await browser.pause(10000);
+  console.log("element is display");
+  await QADashboardPage.clickViewRelatedDashboards();
+  await browser.pause(10000);
+  await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');
+  await QADashboardPage.openDropdown();
+  await QADashboardPage.downloadPDF();
+  await browser.pause(10000);
+  await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');
+  await QADashboardPage.openDropdown();
+  await QADashboardPage.selectVynsForPDF();
+  await browser.pause(5000);
+ 
+
+});
+it('should click on Vyns', async () => {
+  await QADashboardPage.selectVynsclick1();
+  await browser.pause(5000);
+  // await QADashboardPage.selectVynsclick2();
+  // await browser.pause(5000);
+  await QADashboardPage.downloadVynButton1();
+  await browser.pause(5000);
+});
+
+it('should click on Download Summary', async () => {
+  await QADashboardPage.downloadSummary();
+  await browser.pause(5000);
+});
+
+  it('should click on open Search button', async () => {
+  await QADashboardPage.openSearchMenu();
+  await browser.pause(5000);
+  await QADashboardPage.searchoptionfilter();
+  await browser.pause(5000);
+});
+
+/*it('should interact with related dashboards', async () => {
+  await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');
+  await QADashboardPage.clickViewRelatedDashboards();
+  await browser.pause(10000);
+});
+it('should interact with download pdf', async () => {
+  await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');
+  await QADashboardPage.downloadPDF();
+  await browser.pause(10000);
+});*/
 it('should click vyn play Tab', async () => {
   await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c/7cf11cc0382544f6b3dff930f105975d'); 
   await QADashboardPage.openRecordingTab(); 
-  
   await browser.pause(10000);
 });
 
-it('should interact with related dashboards, PDF, and checkbox', async () => {
-  await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');
-  await QADashboardPage.clickViewRelatedDashboards();
-});
+/*i
 /*it('should open recording tab', async () => {
   await browser.url('https://vynqa.vynsmart.com/dashboards/d2924b28251c42bbaf6c2ae75e09f24c');
   await QADashboardPage.openRecordingTab();

@@ -1,4 +1,16 @@
-const AppPage = require('./page');
+const AppPage = require('../pageobjects/AppPage');
+
+const LoginPage1 = require('../pageobjects/vynpomlogin1');
+
+before (async () => {
+    console.log('<<<<<<<<<<< login called');
+    browser.url('https://vynqa.vynsmart.com')
+     await LoginPage1.login('vaibhav+qa@humanlearning.com','9634Pb@@');
+    //  await expect(browser).toHaveUrlContaining('/dashboards');
+     await browser.pause(10000);
+    //  await QADashboardPage.open();
+     
+  });
 describe('Webpage Automation', () => {
     before(async () => {
         await AppPage.open();
