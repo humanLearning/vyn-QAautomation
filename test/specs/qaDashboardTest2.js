@@ -1,4 +1,4 @@
-// Path is relative to the spec file
+
 
 
 const LoginPage1 = require('../pageobjects/vynpomlogin1');

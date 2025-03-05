@@ -1,4 +1,4 @@
-class AppPage {
+class AppPage2 {
 
     get Vynsheading() {
         
@@ -11,7 +11,7 @@ class AppPage {
     // }
     get videoPlayButton() {
         // Assuming play button has a class or attribute
-        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[1]/div[1]/div[2]/div[1]/span[1]"); // Example locator, adjust as needed if you find a specific play button element within the video player
+        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/div[1]/span[1]"); // Example locator, adjust as needed if you find a specific play button element within the video player
     }
 
     get RecordinglayButton() {
@@ -29,6 +29,9 @@ class AppPage {
     }
     get commentsSection() {
         return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/button[1]"); // Example container class
+    }
+    get commentsSectiondata() {
+        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/textarea[1]"); // Example container class
     }
     get downloadIconTestPDF() {
         return $("//button[@title='Download PDF']"); // Example, adjust based on actual structure and icon locator
@@ -86,6 +89,9 @@ class AppPage {
     async commentsectionclick() {
         await this.commentsSection.click();
     }
+    async usernameTextBoxvalue(commentname) {
+    await this.commentsSectiondata.setValue(commentname);
+    }
     async clickDownloadTestPDF() {
         await this.downloadIconTestPDF.click();
         // Add assertions to verify download if needed, e.g., check file download status or existence
@@ -109,4 +115,4 @@ class AppPage {
         await this.commentIconInAllTab.click();
     }
 }
-module.exports = new AppPage();
+module.exports = new AppPage2();
