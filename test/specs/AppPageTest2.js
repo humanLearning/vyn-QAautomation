@@ -45,6 +45,40 @@ describe('Vynpage Automation', () => {
         await browser.pause(10000);
     });
 
+    
+
+    it('should be able to submit comment', async () => {
+        // browser.url('https://vynqa.vynsmart.com')
+    await AppPage2.commentsectionfill();
+    await browser.pause(10000);
+    });
+
+    it('should be able to click on comment link', async () => {
+        // browser.url('https://vynqa.vynsmart.com')
+    await AppPage2.commentsectionlinkclick();
+    await browser.pause(10000);
+    });
+
+    it('should be able to click on comment capture link', async () => {
+        // browser.url('https://vynqa.vynsmart.com')
+    await AppPage2.commentscapturelinkclick();
+    await browser.pause(10000);
+    });
+
+    it('should be able to insert comment', async () => {
+                // browser.url('https://vynqa.vynsmart.com')
+        await AppPage2.usernameTextBoxvalue('vaibhav+qa@humanlearning.com');
+        await browser.pause(10000);
+    });
+    
+    it('should be able to insert emailid in capturelink through comments', async () => {
+        // browser.url('https://vynqa.vynsmart.com')
+    await AppPage2.capturelinkemailidclick();
+    await browser.pause(5000);
+    await AppPage2.capturelinkemailidclick('va');
+    await browser.pause(10000);
+    });
+
     it('User should be able to click on the labels', async () => {
         await AppPage2.clickonLabel1();
         await browser.pause(5000);

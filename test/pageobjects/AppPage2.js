@@ -11,7 +11,7 @@ class AppPage2 {
     // }
     get videoPlayButton() {
         // Assuming play button has a class or attribute
-        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[2]/div[1]/div[2]/div[1]/span[1]"); // Example locator, adjust as needed if you find a specific play button element within the video player
+        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[3]/div[1]/div[2]/div[1]/span[1]"); // Example locator, adjust as needed if you find a specific play button element within the video player
     }
 
     get RecordinglayButton() {
@@ -32,6 +32,23 @@ class AppPage2 {
     }
     get commentsSectiondata() {
         return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/textarea[1]"); // Example container class
+    }
+    get commentsecsubmission() {
+        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[4]"); // Example, adjust based on actual structure and icon locator
+    }
+
+    get commentsectionlink() {
+        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]");
+    }
+    get commentscapturelink() {
+        return $ ("/html[1]/body[1]/div[3]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]");
+                    
+    }
+
+    get capturelinkemailid() {
+        return $ ("/html[1]/body[1]/div[3]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]");
+        // /html[1]/body[1]/div[3]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]
+                                
     }
     get downloadIconTestPDF() {
         return $("//button[@title='Download PDF']"); // Example, adjust based on actual structure and icon locator
@@ -92,11 +109,26 @@ class AppPage2 {
     async usernameTextBoxvalue(commentname) {
     await this.commentsSectiondata.setValue(commentname);
     }
+
+    async commentsectionfill() {
+    await this.commentsecsubmission.click();
+    }
+    async commentsectionlinkclick() {
+        await this.commentsectionlink.click();
+    }
+    async commentscapturelinkclick() {
+        await this.commentscapturelink.click();
+    }
+
+    async capturelinkemailidclick(emailid) {
+        await this.capturelinkemailid.click();
+        await this.capturelinkemailid.setValue(emailid);
+    }
     async clickDownloadTestPDF() {
         await this.downloadIconTestPDF.click();
         // Add assertions to verify download if needed, e.g., check file download status or existence
     }
-    async openAssigneesDropdown() {
+    /*async openAssigneesDropdown() {
         await this.assigneesDropdown.click();
     }
     async selectAssigneeOption(optionText) {
@@ -113,6 +145,6 @@ class AppPage2 {
     }
     async clickCommentIconInAll() {
         await this.commentIconInAllTab.click();
-    }
+    }*/
 }
 module.exports = new AppPage2();
