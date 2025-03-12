@@ -15,9 +15,9 @@ class LoginPage2{
     }
     
     async login(username,password){
+        console.log('<<<<<<<<<<< login called')
         await this.OldloginBox.click()
         await this.usernameTextBox1.setValue(username)
-        
         await this.passwordTextBox1.setValue(password)
         await this.loginButton2.click()
         

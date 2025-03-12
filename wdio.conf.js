@@ -21,11 +21,11 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/vynoldlogin.js'
+        './test/specs/**/AppPageTest2.js'
     ],
     // Patterns to exclude.
     exclude: [
-        './test/specs/login.js',
+        
         './test/specs/signup.js',
         './test/specs/Vynlogin.js',
         

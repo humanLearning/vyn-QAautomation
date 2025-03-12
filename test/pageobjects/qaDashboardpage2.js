@@ -1,4 +1,4 @@
-class QADashboardPage {
+class QADashboardPage1 {
   
     get channelHeader() 
     { 
@@ -10,29 +10,29 @@ class QADashboardPage {
 
     }
     get authorLinks() {
-         return $("//body/div[@id='react-app']/div[contains(@class,'main-wrapper')]/div[contains(@class,'mt-3 container-fluid')]/div[contains(@class,'px-0 px-sm-3 px-xl-5')]/div[contains(@class,'row')]/div[contains(@class,'col-xl-12')]/div[contains(@class,'row')]/div[contains(@class,'col')]/div[contains(@class,'dashboard-lanes')]/div[1]/div[1]/div[1]/div[1]/div[2]/a[1]");
+         return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]");
     } 
          
     get recordingDropdown() 
     { 
-      return $("//div[contains(@class,'dashboard-lanes')]//div[1]//div[1]//div[1]//div[7]//div[2]//div[1]//a[1]//*[name()='svg']//*[name()='path' and contains(@d,'M18.78 15.')]")
+      return $("//div[contains(@class,'main-wrapper')]//div[2]//div[1]//div[1]//div[7]//div[2]//div[1]//a[1]//*[name()='svg']");
 
     } 
     get recordingTab() 
     { 
-      return $("//div[@class='slick-slide slick-active slick-current']//div//span[@class='vn-icon vn-play']") 
+      return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/a[1]/div[1]/div[2]/div[1]/span[1]");
       
     } 
 
     get clickdots() 
     { 
-      return $("//div[1]//div[1]//div[3]//div[1]//div[1]//div[1]//div[1]//div[1]//div[7]//div[2]//div[3]//div[1]//div[1]//*[name()='svg']"); 
+      return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[2]/div[3]/div[1]/div[1]/*[name()='svg'][1]/*[name()='path'][1]"); 
 
     }
 
     get fetchdots() 
     { 
-      return $("//div[@class='dropdown-menu show']"); 
+      return $("//div[contains(@class,'dropdown-menu show')]"); 
 
     }
 
@@ -45,29 +45,29 @@ class QADashboardPage {
     }*/
       get viewRelatedDashboardsLink() 
       { 
-        return $("//div[1]//div[1]//div[3]//div[1]//div[1]//div[1]//div[1]//div[1]//div[7]//div[2]//div[3]//div[1]//div[2]//a[1]");
+        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[2]/div[3]/div[1]/div[2]/a[1]");
   
       } 
 
 
     get downloadPDFLink() 
     { 
-      return $('/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[2]/div[3]/div[1]/div[2]/a[2]');
+      return $('/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[2]/div[3]/div[1]/div[2]/a[2]');
 
     } 
     get selectVynsCheckbox() 
     { 
-      return $('/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[7]/div[2]/div[3]/div[1]/div[2]/a[3]')
+      return $('/html[1]/body[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[7]/div[2]/div[3]/div[1]/div[2]/a[3]');
 
      } 
     get Selectvynsclickfirst() 
     { 
       return $("//div[contains(@class,'grid-svns')]//a[1]");
     } 
-    /*get Selectvynsclicksecond() 
+    get Selectvynsclicksecond() 
     { 
       return $("//div[contains(@class,'svn-card shadow-sm selectable card')]");
-    } */
+    } 
     get downloadVynButton() 
     { 
       return $("//button[normalize-space()='Download']");
@@ -75,7 +75,7 @@ class QADashboardPage {
     }
     get downloadSummaryButton() 
     { 
-      return $("//span[normalize-space()='Download summary']") 
+      return $("//span[normalize-space()='Download summary']"); 
 
     } 
     get searchButton() 
@@ -98,6 +98,7 @@ class QADashboardPage {
     }
     async openRecordingTab() {
       await this.recordingTab.click();
+      await this.recordingDropdown.click();
       // await this.recordingDropdown.click();
       // return this.recordingTab.waitForDisplayed(); // Verify tab is open
     }
@@ -119,9 +120,9 @@ class QADashboardPage {
     async selectVynsclick1() {
       await this.Selectvynsclickfirst.click();
     }
-    /*async selectVynsclick2() {
+    async selectVynsclick2() {
       await this.Selectvynsclicksecond.click();
-    }*/
+    }
     async downloadVynButton1() {
       await this.downloadVynButton.click();
     }
@@ -172,5 +173,5 @@ class QADashboardPage {
     }
   }}*/
     }
-  module.exports = new QADashboardPage();
+  module.exports = new QADashboardPage1();
   
