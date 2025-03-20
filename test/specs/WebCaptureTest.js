@@ -1,58 +1,38 @@
-const AppPage = require('../pageobjects/AppPage');
+const WebCapture = require('../pageobjects/WebCapture');
 
-const LoginPage1 = require('../pageobjects/vynpomlogin1');
+
 
 before (async () => {
     console.log('<<<<<<<<<<< login called');
-    browser.url('https://vynqa.vynsmart.com')
-     await LoginPage1.login('vaibhav+qa@humanlearning.com','9634Pb@@');
+    browser.url('https://vynqa.vynsmart.com/capture?storyboardName=new-punch')
+    //  await LoginPage1.login('vaibhav+qa@humanlearning.com','9634Pb@@');
     //  await expect(browser).toHaveUrlContaining('/dashboards');
      await browser.pause(10000);
     //  await QADashboardPage.open();
      
   });
-
-  describe('First Card Validation', () => {
-    
-        before(async () => {
-    });         
-
-    it('User should be able to click on the vyn heading', async () => {
-        await AppPage.Vynsheadingclick();
-        await browser.pause(10000);
-        console.log('Video Playback Started (Verification needed)'); // Placeholder for verification
-    });
-
-    it('User should be able to click on the vyn card', async () => {
-        const firstcardText = await AppPage.firstCardclick();
-        console.log(" Data Get");
-    });
-    it('should validate and print information of the first card', async () => {
-        // Assuming you have already navigated to the page where the card is present
-        // Based on the image, it looks like a list of items.
-        // If not, you would add a step like:
-        // await browser.url('YOUR_PAGE_URL');
-        // await AppPage.getCardTitleText();
-        await AppPage.validateAndPrintFirstCardInfo();
-        await browser.pause();
-        console.log("Validation");
-    });
-   
-});
-/*describe('Vynpage Automation', () => {
+describe('Vynpage Automation', () => {
     before(async () => {
         // await AppPage.open();
     });
-    it('should validate and print information of the first card', async () => {
-        // Assuming you have already navigated to the page where the card is present
-        // Based on the image, it looks like a list of items.
-        // If not, you would add a step like:
-        // await browser.url('YOUR_PAGE_URL');
-        await AppPage.validateAndPrintFirstCardInfo();
-    });
 
-    /*it('User should be able to click on the vyn heading', async () => {
-        await AppPage.Vynsheadingclick();
+    it('should switch to iframe and click Record button', async () => {
+        console.log('Switching to iframe...');
+        await WebCapture.switchToIframe();
+        await browser.pause(10000);
+        console.log('Switched to iframe.');
+    });  
+    
+    it('should switch to iframe and click Record button 2', async () => {
+        console.log('Switching to iframe...');
+        await WebCapture.switchToIframe2();
+        await browser.pause(10000);
+        console.log('Switched to iframe.');
+    });  
+
+    it('User should be able to click on the vyn heading', async () => {
+        // browser.url('https://vynqa.vynsmart.com/record?ou=vynqa.vynsmart.com&storyboardName=new-punch')
+        await WebCapture.Vynsheadingclick();
         await browser.pause(10000);
         console.log('Video Playback Started (Verification needed)'); // Placeholder for verification
     });
@@ -120,8 +100,8 @@ before (async () => {
         // Add assertions to verify actions after clicking comment icon, e.g., modal opens, context menu appears
         console.log('Clicked Comment Icon in "All" tab (Verification needed)'); // Placeholder for verification
         // Implement further actions and verifications as needed after clicking the icon
-    });*/
-// });
+    });
+});
 
 
 

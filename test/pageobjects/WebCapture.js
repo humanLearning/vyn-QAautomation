@@ -1,8 +1,19 @@
-class AppPage2 {
+class WebCapture {
+
+    get iframeElement() {
+        // Selector for the iframe element itself.
+        // Based on the HTML snippet in the image, the iframe seems to have an ID.
+        return $("//iframe[@title='Form']");
+    }
+    get iframeElement1() {
+        // Selector for the iframe element itself.
+        // Based on the HTML snippet in the image, the iframe seems to have an ID.
+        return $("//div[@id='section_1-section']//div[@class='vsf-page-section-body']");
+    }
 
     get Vynsheading() {
         
-        return $("//a[normalize-space()='Vyns']"); // Example locator, adjust as needed
+        return $("/html[1]/body[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/div[1]/div[2]"); // Example locator, adjust as needed
     }
 
     // get videoPlayer() {
@@ -11,7 +22,7 @@ class AppPage2 {
     // }
     get videoPlayButton() {
         // Assuming play button has a class or attribute
-        return $("/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[5]/div[1]/div[2]/div[1]/span[1]"); // Example locator, adjust as needed if you find a specific play button element within the video player
+        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/a[10]/div[1]/div[2]/div[1]/span[1]"); // Example locator, adjust as needed if you find a specific play button element within the video player
     }
 
     get RecordinglayButton() {
@@ -28,30 +39,7 @@ class AppPage2 {
         return $('/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]/ul[1]/li[2]'); // Example, adjust based on actual text/locator
     }
     get commentsSection() {
-        return $("//button[@title='Add Video Frame']"); 
-        // /html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/button[1]
-        
-        // Example container class
-    }
-    get commentsSectiondata() {
-        return $("//textarea[@placeholder='Write a comment...']"); // Example container class
-    }
-    get commentsecsubmission() {
-        return $("//button[@placeholder='Add Comment']"); // Example, adjust based on actual structure and icon locator
-    }
-
-    get commentsectionlink() {
-        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[2]");
-    }
-    get commentscapturelink() {
-        return $ ("/html[1]/body[1]/div[3]/div[1]/div[1]/form[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]");
-                    
-    }
-
-    get capturelinkemailid() {
-        return $ ("/html[1]/body[1]/div[3]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]");
-        // /html[1]/body[1]/div[3]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/div[1]
-                                
+        return $("/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[2]/div[3]/div[1]/div[1]/div[1]/button[1]"); // Example container class
     }
     get downloadIconTestPDF() {
         return $("//button[@title='Download PDF']"); // Example, adjust based on actual structure and icon locator
@@ -82,6 +70,12 @@ class AppPage2 {
     // async open() {
         // await browser.url('YOUR_APPLICATION_URL'); // Replace with your application URL
     // }*/
+    async switchToIframe() {
+        await browser.switchFrame(await this.iframeElement);
+    }
+    // async switchToIframe2() {
+        // await browser.switchToFrame(await this.iframeElement2);
+    // }
     async Vynsheadingclick() {
         await this.Vynsheading.click();
     }
@@ -109,29 +103,11 @@ class AppPage2 {
     async commentsectionclick() {
         await this.commentsSection.click();
     }
-    async usernameTextBoxvalue(commentname) {
-    await this.commentsSectiondata.setValue(commentname);
-    }
-
-    async commentsectionfill() {
-    await this.commentsecsubmission.click();
-    }
-    async commentsectionlinkclick() {
-        await this.commentsectionlink.click();
-    }
-    async commentscapturelinkclick() {
-        await this.commentscapturelink.click();
-    }
-
-    async capturelinkemailidclick(emailid) {
-        await this.capturelinkemailid.click();
-        await this.capturelinkemailid.setValue(emailid);
-    }
     async clickDownloadTestPDF() {
         await this.downloadIconTestPDF.click();
         // Add assertions to verify download if needed, e.g., check file download status or existence
     }
-    /*async openAssigneesDropdown() {
+    async openAssigneesDropdown() {
         await this.assigneesDropdown.click();
     }
     async selectAssigneeOption(optionText) {
@@ -148,6 +124,6 @@ class AppPage2 {
     }
     async clickCommentIconInAll() {
         await this.commentIconInAllTab.click();
-    }*/
+    }
 }
-module.exports = new AppPage2();
+module.exports = new WebCapture();
