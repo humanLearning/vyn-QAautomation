@@ -21,11 +21,11 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/vynoldlogin.js'
+        './test/specs/**/AppPageTest.js'
     ],
     // Patterns to exclude.
     exclude: [
-        './test/specs/login.js',
+        
         './test/specs/signup.js',
         './test/specs/Vynlogin.js',
         
@@ -132,7 +132,17 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
+    reporters: ['spec',
+        // ['allure', {outputDir: 'allure-results'}]
+    ['junit', {
+        outputDir: 'junit-reports',
+        outputFileFormat: function(options) { // optional
+            return `results-${options.cid}.${options.capabilities}.xml`
+        }
+    }]
+
+
+],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/

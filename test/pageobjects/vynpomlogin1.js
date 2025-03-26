@@ -13,10 +13,10 @@ class LoginPage1{
         return $('[id="btn-login"]')
     }
     get signupclick(){
-        return $ ('vlf-signup-action')
+        return $ ('xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]/a[1]]')
     }
     get signupusername(){
-        return $ ('[id="signup-email"]')
+        return $ ('xpath=/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/input[1]')
     }
     get passsword1(){
         return $ ('[id="signup-password"]')
